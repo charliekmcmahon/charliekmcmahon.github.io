@@ -1,1 +1,26 @@
-<p><a href="https://maker.ifttt.com/trigger/button_toggled/with/key/hLpXhAkwzhMvtQGs_t9SFUb-J6JkvRZmviaYr5Ey62e">Lights</a></p>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Macca's Tech Office Control Pad</h2>
+
+<div id="demo">
+<button type="button" onclick="loadXMLDoc()">Toggle Lights</button>
+</div>
+
+<script>
+function loadXMLDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("GET", "https://maker.ifttt.com/trigger/button_toggled/with/key/hLpXhAkwzhMvtQGs_t9SFUb-J6JkvRZmviaYr5Ey62e", true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>
