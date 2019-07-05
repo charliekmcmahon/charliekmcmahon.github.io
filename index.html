@@ -4,14 +4,34 @@
 
 <h2>Macca's Tech Office Control Pad</h2>
 
-<div id="all">
-<button type="button" onclick="loadall()">Toggle All Lights</button>
-</div>
-<div id="one">
-<button type="button" onclick="loadone()">Toggle Light One</button>	
-</div>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
 
-<script>
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+</style>
+
+
+<p>Light Toggles:</p>
+<button class="btn" onClick="loadall()"><i class="fa fa-home"></i> All</button>
+<button class="btn" onClick="loadone()"><i class="fa fa-bars"></i> Light 1</button>
+<button class="btn" onClick="loadtwo()"><i class="fa fa-trash"></i> Light 2</button>
+<button class="btn" onClick="alloff()"><i class="fa fa-close"></i> All off</button>
+
+
+	<script>
 function loadall() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -34,7 +54,29 @@ function loadone() {
   xhttp.open("GET", "https://maker.ifttt.com/trigger/light_1/with/key/hLpXhAkwzhMvtQGs_t9SFUb-J6JkvRZmviaYr5Ey62e", true);
   xhttp.send();
 }
+function loadtwo() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("all").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("GET", "https://maker.ifttt.com/trigger/light_2/with/key/hLpXhAkwzhMvtQGs_t9SFUb-J6JkvRZmviaYr5Ey62e", true);
+  xhttp.send();
+}
+function alloff() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("all").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("GET", "https://maker.ifttt.com/trigger/alloff/with/key/hLpXhAkwzhMvtQGs_t9SFUb-J6JkvRZmviaYr5Ey62e", true);
+  xhttp.send();
+}
 </script>
-
+	
 </body>
 </html>
