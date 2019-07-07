@@ -19,6 +19,23 @@
 <body>
 <h2>Wall Control Pad</h2>
 
+<!--- Colour Wheel Backend--->
+<script>  
+var colorWell;
+var defaultColor = "#0000ff";
+
+window.addEventListener("load", startup, false);
+function startup() {
+  colorWell = document.querySelector("#colorWell");
+  colorWell.value = defaultColor;
+  colorWell.addEventListener("input", updateFirst, false);
+  colorWell.addEventListener("change", updateAll, false);
+  colorWell.select();
+}
+function updateFirst(event) {}
+function updateAll(event) {}
+</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Add icon library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -48,22 +65,7 @@
 
 
 
-<!--- Colour Wheel Backend--->
-<script>  
-var colorWell;
-var defaultColor = "#0000ff";
 
-window.addEventListener("load", startup, false);
-function startup() {
-  colorWell = document.querySelector("#colorWell");
-  colorWell.value = defaultColor;
-  colorWell.addEventListener("input", updateFirst, false);
-  colorWell.addEventListener("change", updateAll, false);
-  colorWell.select();
-}
-function updateFirst(event) {}
-function updateAll(event) {}
-</script>
 
 
 
